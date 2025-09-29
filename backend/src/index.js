@@ -14,9 +14,13 @@ app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.use(express.json());
 
 // rate limits
-app.use('/api/auth', create({ windowMs: 15*60*1000, max: 5, message: 'Too many auth attempts' }));
-app.use('/api/transactions', create({ windowMs: 60*60*1000, max: 100 }));
-app.use('/api/analytics', create({ windowMs: 60*60*1000, max: 50 }));
+// app.use('/api/auth', create({ windowMs: 15*60*1000, max: 100, message: 'Too many auth attempts' }));
+// app.use('/api/transactions', create({ windowMs: 60*60*1000, max: 100 }));
+// app.use('/api/analytics', create({ windowMs: 60*60*1000, max: 100 }));
+
+app.use('/api/auth', create());
+app.use('/api/transactions', create());
+app.use('/api/analytics', create());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transRoutes);
