@@ -1,39 +1,28 @@
-import React, { useState } from 'react';
-import api from '../api/axios';
-import { useNavigate, Link } from 'react-router-dom';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Register() {
-  const [name,setName]=useState('');
-  const [email,setEmail]=useState('');
-  const [password,setPassword]=useState('');
-  const [err,setErr]=useState('');
+  const { register: doRegister } = useAuth();
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErr('');
-    try {
-      await api.post('/auth/register',{name,email,password});
-      navigate('/login');
-    } catch (error) {
-      setErr(error?.response?.data?.error || error.message || 'Register failed');
-    }
+  const onSubmit = async (data) => {
+    const res = await doRegister(data);
+    if (res.ok) navigate('/dashboard');
+    else alert(res.error || 'Register failed');
   };
 
   return (
-    <div className="center">
+    <div style={{ padding: 20 }}>
       <h2>Register</h2>
-      {err && <div className="error">{err}</div>}
-      <form onSubmit={handleSubmit} className="form">
-        <label>Name</label>
-        <input value={name} onChange={e=>setName(e.target.value)} required />
-        <label>Email</label>
-        <input type="email" value={email} onChange={e=>setEmail(e.target.value)} required />
-        <label>Password</label>
-        <input type="password" value={password} onChange={e=>setPassword(e.target.value)} required />
-        <button type="submit">Register</button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div><label>Name</label><input {...register('name')} /></div>
+        <div><label>Email</label><input {...register('email')} /></div>
+        <div><label>Password</label><input type="password" {...register('password')} /></div>
+        <button type="submit">Create account</button>
       </form>
-      <p>Already have an account? <Link to="/login">Login</Link></p>
     </div>
   );
 }
