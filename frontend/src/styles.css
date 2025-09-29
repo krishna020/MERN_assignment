@@ -1,0 +1,11 @@
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 0; padding: 0; background: #f6f8fb; color:#222; }
+.container { max-width: 1000px; margin: 24px auto; padding: 16px; }
+.center { max-width: 420px; margin: 40px auto; padding: 16px; background: white; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);}
+.form { display:flex; flex-direction: column; gap:10px; }
+.form input { padding:8px; border-radius:6px; border:1px solid #ddd; }
+button { padding:8px 12px; border-radius:6px; border:none; background:#2563eb; color:white; cursor:pointer; }
+button:disabled { opacity:0.6; cursor:not-allowed; }
+.error { color: #b91c1c; margin-bottom: 8px; }
+.chartRow { display:flex; gap:16px; flex-wrap:wrap; }
+.card { background:white; padding:12px; border-radius:8px; flex:1 1 420px; box-shadow: 0 6px 16px rgba(16,24,40,0.04); }
