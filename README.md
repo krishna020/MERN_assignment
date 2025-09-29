@@ -4,7 +4,11 @@
 
 ---
 
+<<<<<<< HEAD
 ##  Project Overview
+=======
+## 🚀 Project Overview
+>>>>>>> 0354e75cb6b6cb1c5635350d77b0f151b0c6c164
 
 [cite_start]The **Personal Finance Tracker** allows users to[cite: 3]:
 * [cite_start]Manage and categorize their income and expense transactions[cite: 3, 24].
@@ -13,7 +17,11 @@
 
 ---
 
+<<<<<<< HEAD
 ## Tech Stack
+=======
+## 🛠️ Tech Stack
+>>>>>>> 0354e75cb6b6cb1c5635350d77b0f151b0c6c164
 
 ### Frontend
 * [cite_start]**Framework:** React 18+ [cite: 5]
@@ -26,7 +34,11 @@
 
 ---
 
+<<<<<<< HEAD
 ## Key Features
+=======
+## ✨ Key Features
+>>>>>>> 0354e75cb6b6cb1c5635350d77b0f151b0c6c164
 
 ### 1. User Authentication & Authorization (RBAC)
 [cite_start]The application includes JWT-based user registration and login with protected routes[cite: 12, 13, 14]. [cite_start]A robust **Role-Based Access Control (RBAC)** system manages user permissions[cite: 15, 75]:
